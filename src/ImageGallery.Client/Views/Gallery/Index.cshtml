@@ -1,0 +1,28 @@
+﻿@model ImageGallery.Client.ViewModels.GalleryIndexViewModel
+
+<div class="bottomMarginDefault">
+</div>
+
+<div class="container">
+    @foreach (var item in Model.Images)
+    {
+        <div class="pull-left col-md-4">
+            <div>
+                <a asp-action="ViewImage" asp-controller="Gallery" asp-route-id="@item.Id">
+                <img class="thumbnailImage" src="@("https://localhost:44366/images/" + item.FileName)" />
+                </a>
+            </div>
+            <div>
+
+                <div class="form-group">
+                    <label>Title</label>
+                    <input asp-for="@item.Title" class="form-control" disabled />
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea asp-for="@item.Description" class="form-control" rows="2" disabled></textarea>
+                </div>
+            </div>
+        </div>
+    }
+</div> 
